@@ -37,9 +37,8 @@ MajorityEle(c)
 
 # solutiuon 2: Boyer-Moore majority vote algorithm 
 # time complexity O(n), space O(1)
-# key idea, keep record of max cnt and corresponding index. If a new observation comes, it acutally cancel out 1 cnt 
-# if the cnt for current number becomes 0, it means current number can't be the majority
-# example: [1,1,2,3,3,1,1,1]
+# key idea: more increases for the majority number than decreases, so the counter will be positive at end with majority number stored.
+# extreme case: [2,2,2,3,3,3,2,2]
 MajorityEle_2 <- function(x){
   indx <- 1
   cnt <- 1
