@@ -1,0 +1,18 @@
+# generate data
+data <- data.frame(department = c("a","b","a","a","b","a","a"), 
+                   name = c("jake","mark","henry","micheal","jone","lucy","lily"), 
+                   salary = sample(0:100,size=7,replace=T))
+
+
+# function to get top three salary for one department
+GetTopThree <- function(x){
+  
+    return(x$name[order(x$salary, decreasing = T)[1:min(dim(x)[1],3)]]) # use min() in case less than 3 people in one department
+  
+}
+
+# use by to apply function to each group of the data
+result <- by(data, INDICES = data$department, FUN=GetTopThree)
+
+# print the result
+print(result)
