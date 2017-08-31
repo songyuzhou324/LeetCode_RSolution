@@ -53,7 +53,23 @@ PascalTriangle <- function(rownumber){
   }
 }
 
-PascalTriangle(5)
+# solution 3: recursively call the main function
+PascalTriangle_recursive <- function(rownumber){
+  if(rownumber == 1){
+    res <- c(1)
+  } else if (rownumber == 2){
+    res <- c(1,1)
+  } else {
+    res <- rep(1,rownumber)
+    bf <- PascalTriangle_recursive(rownumber - 1)
+    for(i in 2:(rownumber-1)){
+      res[i] <- bf[i-1] + bf[i] 
+    }
+  }
+  return(res)
+}
+
+PascalTriangle_recursive(5)
 
 
 
