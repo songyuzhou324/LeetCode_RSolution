@@ -26,8 +26,8 @@ reverse <- function(x, start, end){
 rotate <- function(x,k){
   n <- length(x)
   x <- reverse(x,1,n) # reverse all
-  x <- reverse(x,(n-k+1),n) # reverse last k elements
-  x <- reverse(x, 1, (n-k)) # reverse first n-k elements
+  x <- reverse(x,k+1,n) # reverse last n-k elements
+  x <- reverse(x, 1, k) # reverse first k elements
   return(x)
 }
 
